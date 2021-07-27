@@ -1,29 +1,23 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Header from "./header";
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
-const IndexPage = () => {
-  const { t } = useTranslation("index");
-
+const Page2Page = ({ data }) => {
+  const { t } = useTranslation("page2");
+  console.log(data);
   return (
     <main>
       <h1>
         <Header></Header>
       </h1>
-      <h1>{t("welcomeMessage")}</h1>
-      <p>{t("name")}</p>
-      <p>{t("profession")}</p>
-      <p>
-        <Trans>My Birthday is 1998/04/25</Trans>
-      </p>
-      <p>{t("message")}</p>
-      <Link to="/page2">Page 2</Link>
+      <h1>{t("message")}</h1>
+      <Link to="/">Page 1</Link>
     </main>
   );
 };
 
-export default IndexPage;
+export default Page2Page;
 
 export const query = graphql`
   query ($language: String!) {
